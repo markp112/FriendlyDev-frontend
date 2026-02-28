@@ -9,6 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import Navbar from './components/Navbar/Navbar';
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,6 +24,13 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: 'The Friendly Dev' },
+    { name: 'description', content: 'Custom software development services with a personal touch.' },
+  ];
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -33,7 +41,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <Navbar />
+        <main>
+          {children}
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -62,7 +73,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
+        <main className="pt-16 p-4 container mx-auto">
       <h1>{message}</h1>
       <p>{details}</p>
       {stack && (
