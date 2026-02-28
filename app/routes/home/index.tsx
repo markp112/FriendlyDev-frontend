@@ -19,6 +19,8 @@ export const loader = async ({ request }: Route.LoaderArgs): Promise<{ projects:
     fetch(`${import.meta.env.VITE_API_URL}/posts?sort[0]=date:desc&desc&populate=*`),
   ]);
 
+  console.log('projectJsonRes: ', projectJsonRes);
+  console.log('postRes: ', postRes);
   if (!projectJsonRes.ok || !postRes.ok) {
     throw new Response('Failed to fetch data', { status: 500 });
   }

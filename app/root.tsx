@@ -26,8 +26,8 @@ export const links: Route.LinksFunction = () => [
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'The Friendly Dev' },
-    { name: 'description', content: 'Custom software development services with a personal touch.' },
+    { title: 'Byte Thread' },
+    { name: 'description', content: 'Software development information and resources.' },
   ];
 }
 
@@ -57,6 +57,7 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  console.log('error: ', error);
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
