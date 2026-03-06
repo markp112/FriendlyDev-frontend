@@ -11,27 +11,40 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 px-4 py-2 rounded mb-8 border-b border-gray-700 shadow-md sticky top-0 Z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <NavLink to="/" className="text-blue-300 text-lg font-bold flex items-center gap-2">
+        <NavLink
+          to="/"
+          className="text-blue-300 text-lg font-bold flex items-center gap-2"
+        >
           <FaLaptopCode className="text-blue-400 text-xl" />
-          The Friendly Developer
+          Thread Byte
         </NavLink>
         <div className="hidden md:flex gap-6 items-center">
           <div className="space-x-4 text-sm text-gray-300">
-            <NavLink to="/" className={({ isActive }) => (isActive ? active : base)}>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? active : base)}
+            >
               Home
             </NavLink>
-            <NavLink to="/projects" className={({ isActive }) => (isActive ? active : base)}>
+            <NavLink
+              to="/projects"
+              className={({ isActive }) => (isActive ? active : base)}
+            >
               Projects
             </NavLink>
-             <NavLink to="/blog" className={({ isActive }) => (isActive ? active : base)} >
-                Blog
-              </NavLink>
-            <NavLink to="/about" className={({ isActive }) => (isActive ? active : base)}>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) => (isActive ? active : base)}
+            >
+              Blog
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? active : base)}
+            >
               About
             </NavLink>
-            <NavLink to="/contact" className={({ isActive }) => (isActive ? active : base)}>
-              Contact
-            </NavLink>
+          
           </div>
         </div>
         <div className="md:hidden flex items-center gap-1">
@@ -47,19 +60,39 @@ const Navbar = () => {
         {menuOpen && (
           <div className="absolute top-16 left-0 w-full text-center bg-gray-800 border-t border-gray-700 shadow-md md:hidden px-6 py-4 space-y-2 space-x-4">
             <div className="space-x-4 text-sm text-gray-300">
-              <NavLink to="/" className={({ isActive }) => (isActive ? active : base)} onClick={() => setMenuOpen(false)}>
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? active : base)}
+                onClick={() => setMenuOpen(false)}
+              >
                 Home
               </NavLink>
-              <NavLink to="/projects" className={({ isActive }) => (isActive ? active : base)} onClick={() => setMenuOpen(false)}>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) => (isActive ? active : base)}
+                onClick={() => setMenuOpen(false)}
+              >
                 Projects
               </NavLink>
-              <NavLink to="/blog" className={({ isActive }) => (isActive ? active : base)} onClick={() => setMenuOpen(false)}>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) => (isActive ? active : base)}
+                onClick={() => setMenuOpen(false)}
+              >
                 Blog
               </NavLink>
-              <NavLink to="/about" className={({ isActive }) => (isActive ? active : base)} onClick={() => setMenuOpen(false)}>
+              <NavLink
+                to="/about"
+                className={({ isActive }) => (isActive ? active : base)}
+                onClick={() => setMenuOpen(false)}
+              >
                 About
               </NavLink>
-              <NavLink to="/contact" className={({ isActive }) => (isActive ? active : base)} onClick={() => setMenuOpen(false)}>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) => (isActive ? active : base)}
+                onClick={() => setMenuOpen(false)}
+              >
                 Contact
               </NavLink>
             </div>
