@@ -40,7 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-pastel-light-surface dark:bg-pastel-dark-surface">
         <Navbar />
         <main>
           {children}
