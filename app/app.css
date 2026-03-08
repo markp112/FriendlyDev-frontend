@@ -1,17 +1,78 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Pastel Blue Color Palette */
+
+  /* Primary Pastel Blues */
+  --color-pastel-blue-50: #f0f7ff;
+  --color-pastel-blue-100: #e0effe;
+  --color-pastel-blue-200: #bae0fd;
+  --color-pastel-blue-300: #7cc5fb;
+  --color-pastel-blue-400: #36a7f7;
+  --color-pastel-blue-500: #0c8ce8;
+  --color-pastel-blue-600: #006dc6;
+  --color-pastel-blue-700: #0157a1;
+  --color-pastel-blue-800: #064a85;
+  --color-pastel-blue-900: #0b3d6e;
+
+  /* Accent - Soft Lavender/Purple */
+  --color-pastel-accent-50: #faf5ff;
+  --color-pastel-accent-100: #f3e8ff;
+  --color-pastel-accent-200: #e9d5ff;
+  --color-pastel-accent-300: #d8b4fe;
+  --color-pastel-accent-400: #c084fc;
+  --color-pastel-accent-500: #a855f7;
+  --color-pastel-accent-600: #9333ea;
+  --color-pastel-accent-700: #7e22ce;
+  --color-pastel-accent-800: #6b21a8;
+  --color-pastel-accent-900: #581c87;
+
+  /* Soft Neutrals for Light Mode */
+  --color-pastel-light-bg: #fcfdff;
+  --color-pastel-light-surface: #f5f8fc;
+  --color-pastel-light-border: #dce7f5;
+  --color-pastel-light-text: #1e3a5f;
+  --color-pastel-light-text-muted: #5a7396;
+
+  /* Soft Neutrals for Dark Mode */
+  --color-pastel-dark-bg: #0f1419;
+  --color-pastel-dark-surface: #1a2332;
+  --color-pastel-dark-elevated: #243447;
+  --color-pastel-dark-border: #2d4058;
+  --color-pastel-dark-text: #e8f0f9;
+  --color-pastel-dark-text-muted: #a8bdd4;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-pastel-light-bg text-pastel-light-text
+        dark:bg-pastel-dark-bg dark:text-pastel-dark-text;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+.surface {
+  @apply bg-pastel-light-surface dark:bg-pastel-dark-surface;
+}
+.border-primary {
+  @apply border-pastel-light-border dark:border-pastel-dark-border;
+}
+.text-muted {
+  @apply text-pastel-light-text-muted dark:text-pastel-dark-text-muted;
+}
+.text-primary {
+  @apply text-pastel-blue-600 dark:text-pastel-blue-200;
+}
+.accent {
+  @apply bg-pastel-accent-200 dark:bg-pastel-accent-800;
+}
+.button-primary {
+  @apply bg-pastel-blue-400 hover:bg-pastel-blue-500 dark:bg-pastel-blue-600 dark:hover:bg-pastel-blue-700 font-semibold py-2 px-4 rounded transition-colors duration-300;
 }
