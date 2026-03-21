@@ -18,9 +18,9 @@ export const loader = async ({ request, params }: Route.LoaderArgs): Promise<any
     throw new Response('Failed to fetch blog post', { status: res.status });
   }
   const json: StrapiResponse<StrapiPostAttributes> = await res.json();
- 
+
   if (json.data.length === 0) {
-   throw new Response('Post not found', { status: 404 });
+    throw new Response('Post not found', { status: 404 });
   }
 
   const item = json.data[0];
@@ -45,25 +45,33 @@ type BlogDetailsPageProps = {
   loaderData: {
     postMeta: PostMeta | null;
   };
-}
+};
 
 const BlogDetailsPage = ({ loaderData }: BlogDetailsPageProps) => {
   const { postMeta } = loaderData;
 
-  if (!postMeta ) {
+  if (!postMeta) {
     return <div>Post not found</div>;
   }
-  return <div className="max-w-3xl mx-auto px-6 py-12 bg-gray-900 text-white">
-    <h1 className="text-4xl font-bold mb-6">{postMeta.title}</h1>
-    <p className="text-sm text-gray-400 mb-6">{new Date(postMeta.date).toDateString()}</p>
-    <img src={postMeta.image} alt="" />
-    <div className="prose prose-invert max-w-none mb-12">
-      <ReactMarkdown>{postMeta.body}</ReactMarkdown>
+  return (
+    <div className="max-w-6xl mx-auto px-6 py-12 bg-gray-900 text-white">
+      <h1 className="text-4xl font-bold mb-6">{postMeta.title}</h1>
+      <p className="text-sm text-gray-400 mb-6">{new Date(postMeta.date).toDateString()}</p>
+      <img
+        src={postMeta.image}
+        alt=""
+      />
+      <div className="prose prose-invert max-w-none mb-12 mt-6">
+        <ReactMarkdown>{postMeta.body}</ReactMarkdown>
+      </div>
+      <Link
+        to="/blog"
+        className="text-sm text-white transition  hover:bg-blue-700 mt-8 inline-block py-2 px-6 bg-blue-600 rounded-lg"
+      >
+        ← Back to Posts
+      </Link>
     </div>
-    <Link to="/blog" className="text-sm text-white transition  hover:bg-blue-700 mt-8 inline-block py-2 px-6 bg-blue-600 rounded-lg">
-      ← Back to Posts
-    </Link>
-  </div>;
+  );
 };
 
 export default BlogDetailsPage;
